@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+   <mat-icon>menu</mat-icon>
+ </button>
+ <span style="padding-left: 10px;">TWD admin</span>
+ <span class="example-spacer"></span>
+ <button mat-icon-button class="example-icon favorite-icon" aria-label="Survivors" [routerLink]="['/survivor']">
+   <mat-icon>account_circle</mat-icon>
+ </button>
+ <button mat-icon-button class="example-icon" aria-label="Teams" [routerLink]="['/team']">
+  <mat-icon>supervised_user_circle</mat-icon>
+</button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
