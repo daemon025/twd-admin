@@ -13,15 +13,18 @@ export class SurvivorService {
   getSurvivors(): Observable<Survivor[]> {
     let survivors: Survivor[] = [];
     let headers = new HttpHeaders();
-    headers.set('Access-Control-Allow-Origin', '*');
-    headers.set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+    headers.set('User-Agent', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0');
+    headers.set('DNT', '1');
+    headers.set('Accept', 'text/csv');
+    headers.set('Accept-Encoding', 'deflate');
+    headers.set('Accept-Language', 'en-US,en;q=0.5');
 
     console.log('Gettings survivors');
-    return this.http.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vS3_Kwfc_kEJgBNvKvLUmXU7dBKzg_dVMGyqX1YvpohFGTu1_p9404GshnJRNdtV3eeIdyYhoDOweBn/pub?gid=1662887305&single=true&output=csv', {
+    return this.http.get('https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/1YzhrglHp4EE8yIs1EDnv68fiFkuX3BpeoYkjapmL9nk/export?format=csv&gid=1662887305', {
       headers: headers
     })
       .pipe(
-        map(response => {
+        map((response: string) => {
           console.log(response);
 
           return survivors;
