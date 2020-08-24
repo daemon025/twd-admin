@@ -1,0 +1,79 @@
+.survivor-panel {
+    width: 160px;
+    border: solid 2px yellow;
+    border-radius: 5px;
+}
+
+.survivor-panel .header {
+    height: 32px;
+    display: inline-flex;
+}
+
+.survivor-panel .header .survivor-class {
+    height: 32px;
+    width: 32px;
+}
+
+.survivor-panel .header .survivor-name {
+    color: white;
+    width: 128px;
+    text-align: right;
+}
+
+.survivor-panel .body {
+    height: 224px;
+    width: 160px;
+    opacity: 0.5;
+    background-image: url('https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png');
+}
+
+.survivor-panel .body .level-container {
+    display: inline-flex;
+    height: 32px;
+}
+
+.survivor-panel .body .level-container .level {
+    color: white;
+    background-color: black;
+    height: 32px;
+    width: 32px;
+    border-bottom-right-radius: 5px;
+}
+
+.survivor-panel .body .level-container .star {
+    width: 128px;
+    text-align: right;
+}
+
+.survivor-panel .body .badge-container {
+    height: 32px;
+    width: 32px;
+    color: white;
+    background-color: black;
+    margin-top: 8px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.survivor-panel .body .stats-container {
+    height: 24px;
+    width: 160px;
+    margin-top: 128px;
+}
+
+.survivor-panel .body .survivor-image {
+    height: 224px;
+    width: 160px;
+}
+
+.survivor-panel .footer {
+    height: 32px;
+    display: inline-flex;
+}
+
+.survivor-panel .survivor-trait {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    vertical-align: middle;
+}

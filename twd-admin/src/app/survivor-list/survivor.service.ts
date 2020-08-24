@@ -52,6 +52,7 @@ export class SurvivorService {
               survivor.traits.push(this.getTrait(arr[header.indexOf('Traits') + 4]));
 
             survivors.push(survivor);
+            break;
           }
 
           return survivors;

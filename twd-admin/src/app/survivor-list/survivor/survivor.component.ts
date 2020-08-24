@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { SurvivorService } from '../survivor.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Survivor } from '../survivor';
 
 @Component({
   selector: 'app-survivor',
@@ -7,6 +7,7 @@ import { SurvivorService } from '../survivor.service';
   styleUrls: ['./survivor.component.css']
 })
 export class SurvivorComponent implements OnInit {
+  @Input() survivor: Survivor;
 
   constructor() { }
 

@@ -1,1 +1,9 @@
-<p>survivor-list works!</p>
+<div class="filter-container">
+    FILTER
+</div>
+
+<div class="survivor-container">
+    <div *ngFor="let survivor of survivors">
+        <app-survivor [survivor]="survivor"></app-survivor>
+    </div>
+</div>
