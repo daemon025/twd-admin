@@ -2,6 +2,7 @@
     width: 160px;
     border: solid 2px yellow;
     border-radius: 5px;
+    font-size: 18px;
 }
 
 .survivor-panel .header {
@@ -17,13 +18,14 @@
 .survivor-panel .header .survivor-name {
     color: white;
     width: 128px;
-    text-align: right;
+    display : flex;
+    align-items : center;
+    justify-content: flex-end;
 }
 
 .survivor-panel .body {
     height: 224px;
     width: 160px;
-    opacity: 0.5;
     background-image: url('https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png');
 }
 
@@ -38,11 +40,16 @@
     height: 32px;
     width: 32px;
     border-bottom-right-radius: 5px;
+    display : flex;
+    align-items : center;
+    justify-content: center;
 }
 
-.survivor-panel .body .level-container .star {
+.survivor-panel .body .level-container .stars {
     width: 128px;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .survivor-panel .body .badge-container {
