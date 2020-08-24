@@ -26,7 +26,8 @@
 .survivor-panel .body {
     height: 224px;
     width: 160px;
-    background-image: url('https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .survivor-panel .body .level-container {

@@ -7,7 +7,7 @@
             <span style="padding-right: 5px;"> {{ survivor.name }} </span>
         </div>
     </div>
-    <div class="body">
+    <div class="body" [ngStyle]="{'background-image': getUrl(survivor)}">
         <div class="level-container">
             <div class="level">{{ survivor.level }}</div>
             <div class="stars">

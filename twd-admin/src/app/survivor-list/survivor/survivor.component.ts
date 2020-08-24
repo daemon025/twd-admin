@@ -13,4 +13,8 @@ export class SurvivorComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  getUrl(survivor: Survivor) : string {
+      return `url('${survivor.image}')`;
+  }
 }
