@@ -1,9 +1,16 @@
 <div class="filter-container">
-    FILTER
+    <button (click)="filter(0)" mat-raised-button color="primary">All</button>
+    <button (click)="filter(1)" mat-raised-button>Heroes</button>
+    <button (click)="filter(2)" mat-raised-button>Assault</button>
+    <button (click)="filter(3)" mat-raised-button>Scout</button>
+    <button (click)="filter(4)" mat-raised-button>Warrior</button>
+    <button (click)="filter(5)" mat-raised-button>Bruiser</button>
+    <button (click)="filter(6)" mat-raised-button>Hunter</button>
+    <button (click)="filter(7)" mat-raised-button>Shooter</button>
 </div>
 
 <div class="survivor-container">
-    <div *ngFor="let survivor of survivors">
+    <div *ngFor="let survivor of filteredSurvivors | survivor" style="padding: 8px;">
         <app-survivor [survivor]="survivor"></app-survivor>
     </div>
 </div>

@@ -1,0 +1,12 @@
+.filter-container {
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 16px;
+    padding-top: 8px;
+}
+
+.survivor-container {
+    display: flex;
+    flex-flow: row wrap;
+}

@@ -36,7 +36,7 @@ export class SurvivorService {
             let survivor = new Survivor(i);
             survivor.name = arr[header.indexOf('Name')];
             survivor.image = arr[header.indexOf('Image')];
-            survivor.level = Number(header.indexOf('Level'));
+            survivor.level = Number(arr[header.indexOf('Level')]);
             survivor.class = SurvivorClass[arr[header.indexOf('Class')]];
             survivor.rarity = SurvivorRarity[arr[header.indexOf('Rarity')]];
 
@@ -52,7 +52,7 @@ export class SurvivorService {
               survivor.traits.push(this.getTrait(arr[header.indexOf('Traits') + 4]));
 
             survivors.push(survivor);
-            break;
+            //break;
           }
 
           return survivors;

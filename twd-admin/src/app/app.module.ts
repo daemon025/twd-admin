@@ -2,21 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
+import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+
+import { AppComponent } from './app.component';
 import { SurvivorListComponent } from './survivor-list/survivor-list.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { SurvivorComponent } from './survivor-list/survivor/survivor.component';
+import { SurvivorPipe } from './survivor-list/survivor.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SurvivorListComponent,
     TeamListComponent,
-    SurvivorComponent
+    SurvivorComponent,
+    SurvivorPipe
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { SurvivorComponent } from './survivor-list/survivor/survivor.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

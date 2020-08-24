@@ -14,6 +14,10 @@ export class Survivor {
         this.id = id;
         this.traits = [];
     }
+
+    get rarityMultiplier() : number {
+        return this.hero ? this.rarity + 1 : this.rarity;
+    }
 }
 
 export enum SurvivorClass {
