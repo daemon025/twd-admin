@@ -1,16 +1,35 @@
 import { StringifyOptions } from "querystring";
 
 export class Survivor {
+    id: number;
     name: string;
     image: string;
     level: number;
-    class: 'Assault' | 'Bruiser' | 'Hunter' | 'Scout' | 'Shooter' | 'Warrior';
-    rarity: 'Common' | 'Uncommon' | 'Rare' | 'Epic' | 'Legendary' | 'Elite' | 'Elite2' | 'Elite3' | 'Elite4' | 'Elite5';
+    class: SurvivorClass;
+    rarity: SurvivorRarity;
     traits: SurvivorTrait[];
     hero: boolean;
+
+    constructor(id: number) {
+        this.id = id;
+        this.traits = [];
+    }
+}
+
+export enum SurvivorClass {
+    Assault, Bruiser, Hunter, Scout, Shooter, Warrior
+}
+
+export enum SurvivorRarity {
+    Common, Uncommon, Rare, Epic, Legendary, Elite, Elite2, Elite3, Elite4, Elite5
 }
 
 export class SurvivorTrait {
     name: string;
     level: number;
+
+    constructor(name: string, level: number) {
+        this.name = name;
+        this.level = level;
+    }
 }
