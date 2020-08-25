@@ -1,12 +1,14 @@
 <div class="filter-container">
-    <button (click)="filter(0)" mat-raised-button color="primary">All</button>
-    <button (click)="filter(1)" mat-raised-button>Heroes</button>
-    <button (click)="filter(2)" mat-raised-button>Assault</button>
-    <button (click)="filter(3)" mat-raised-button>Scout</button>
-    <button (click)="filter(4)" mat-raised-button>Warrior</button>
-    <button (click)="filter(5)" mat-raised-button>Bruiser</button>
-    <button (click)="filter(6)" mat-raised-button>Hunter</button>
-    <button (click)="filter(7)" mat-raised-button>Shooter</button>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle (click)="filter(0)" mat-raised-button color="primary">All</mat-button-toggle>
+        <mat-button-toggle (click)="filter(1)" mat-raised-button>Heroes</mat-button-toggle>
+        <mat-button-toggle (click)="filter(2)" mat-raised-button>Assault</mat-button-toggle>
+        <mat-button-toggle (click)="filter(3)" mat-raised-button>Scout</mat-button-toggle>
+        <mat-button-toggle (click)="filter(4)" mat-raised-button>Warrior</mat-button-toggle>
+        <mat-button-toggle (click)="filter(5)" mat-raised-button>Bruiser</mat-button-toggle>
+        <mat-button-toggle (click)="filter(6)" mat-raised-button>Hunter</mat-button-toggle>
+        <mat-button-toggle (click)="filter(7)" mat-raised-button>Shooter</mat-button-toggle>
+    </mat-button-toggle-group>
 </div>
 
 <div class="survivor-container">

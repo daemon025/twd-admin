@@ -34,25 +34,16 @@ export class SurvivorService {
             const arr = lines[i].split(',');
 
             let survivor = new Survivor(i);
-            survivor.name = arr[header.indexOf('Name')];
+            survivor.name = arr[header.indexOf('Name')].trim();
             survivor.image = arr[header.indexOf('Image')];
             survivor.level = Number(arr[header.indexOf('Level')]);
             survivor.class = SurvivorClass[arr[header.indexOf('Class')]];
             survivor.rarity = SurvivorRarity[arr[header.indexOf('Rarity')]];
 
-            if (arr[header.indexOf('Traits')])
-              survivor.traits.push(this.getTrait(arr[header.indexOf('Traits')]));
-            if (arr[header.indexOf('Traits') + 1])
-              survivor.traits.push(this.getTrait(arr[header.indexOf('Traits') + 1]));
-            if (arr[header.indexOf('Traits') + 2])
-              survivor.traits.push(this.getTrait(arr[header.indexOf('Traits') + 2]));
-            if (arr[header.indexOf('Traits') + 3])
-              survivor.traits.push(this.getTrait(arr[header.indexOf('Traits') + 3]));
-            if (arr[header.indexOf('Traits') + 4])
-              survivor.traits.push(this.getTrait(arr[header.indexOf('Traits') + 4]));
+            const startingTraitIndex = header.indexOf('Traits');
+            this.addTraits(survivor.traits, startingTraitIndex, arr);
 
             survivors.push(survivor);
-            //break;
           }
 
           return survivors;
@@ -64,12 +55,20 @@ export class SurvivorService {
   }
 
   private getTrait(line: string): SurvivorTrait {
-    const nameRegex = new RegExp('[a-zA-Z ]+');
+    const nameRegex = new RegExp('[a-zA-Z \'-]+');
     const levelRegex = new RegExp('([0-9])');
     if (nameRegex.test(line) && levelRegex.test(line)) {
       return new SurvivorTrait(nameRegex.exec(line)[0].trim(), Number(levelRegex.exec(line)[0]));
     }
     return null;
+  }
+
+  private addTraits(traits: SurvivorTrait[], startingIndex: number, arr: string[]): void {
+    for (var i = 0; i < 5 + 5; i++) {
+      const trait = this.getTrait(arr[startingIndex + i]);
+      if (trait)
+        traits.push(trait);
+    }
   }
 
   private indexOf(line: string, column: string): number {

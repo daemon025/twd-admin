@@ -1,7 +1,7 @@
 <div class="survivor-panel">
     <div class="header">
-        <div class="survivor-class" style="background-color: blueviolet;">
-           x
+        <div class="survivor-class">
+           <img [src]="survivor.survivorClassIcon" />
         </div>
         <div class="survivor-name">
             <span style="padding-right: 5px;"> {{ survivor.name }} </span>
@@ -11,11 +11,7 @@
         <div class="level-container">
             <div class="level">{{ survivor.level }}</div>
             <div class="stars">
-                <mat-icon>star_rate</mat-icon>
-                <mat-icon>star_rate</mat-icon>
-                <mat-icon>star_rate</mat-icon>
-                <mat-icon>star_rate</mat-icon>
-                <mat-icon>star_rate</mat-icon>
+                <mat-icon *ngFor="let color of survivor.starColors" [class]="color">star_rate</mat-icon>
             </div>
         </div>
         <div class="badge-container">
@@ -26,10 +22,8 @@
         </div>
     </div>
     <div class="footer">
-        <div class="survivor-trait" style="background-color:cornsilk">1</div>
-        <div class="survivor-trait" style="background-color:crimson">2</div>
-        <div class="survivor-trait" style="background-color:coral">3</div>
-        <div class="survivor-trait" style="background-color:cadetblue ">4</div>
-        <div class="survivor-trait" style="background-color:burlywood;">5</div>
+        <div class="survivor-trait" *ngFor="let trait of survivor.traits">
+            <img [src]="trait.survivorTraitIcon" />
+        </div>
     </div>
 </div>

@@ -13,6 +13,14 @@
 .survivor-panel .header .survivor-class {
     height: 32px;
     width: 32px;
+    display : flex;
+    align-items : center;
+    justify-content: center;
+}
+
+.survivor-panel .header .survivor-class img {
+    height: 24px;
+    width: 24px;
 }
 
 .survivor-panel .header .survivor-name {
@@ -53,6 +61,14 @@
     justify-content: flex-end;
 }
 
+.survivor-panel .body .level-container .stars .grey-icon {
+    color: #D0D8E0;
+}
+
+.survivor-panel .body .level-container .stars .pink-icon {
+    color: #E565B5;
+}
+
 .survivor-panel .body .badge-container {
     height: 32px;
     width: 32px;
@@ -82,6 +98,12 @@
 .survivor-panel .survivor-trait {
     width: 32px;
     height: 32px;
-    text-align: center;
-    vertical-align: middle;
+    display : flex;
+    align-items : center;
+    justify-content: center;
+}
+
+.survivor-panel .survivor-trait img {
+    height: 24px;
+    width: 24px;
 }

@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { AppComponent } from './app.component';
 import { SurvivorListComponent } from './survivor-list/survivor-list.component';
@@ -28,7 +29,8 @@ import { SurvivorPipe } from './survivor-list/survivor.pipe';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

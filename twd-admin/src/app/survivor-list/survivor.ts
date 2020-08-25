@@ -15,8 +15,28 @@ export class Survivor {
         this.traits = [];
     }
 
-    get rarityMultiplier() : number {
+    get rarityMultiplier(): number {
         return this.hero ? this.rarity + 1 : this.rarity;
+    }
+
+    get survivorClassIcon(): string {
+        return '/assets/img/survivor-classes/' + SurvivorClass[this.class].toLowerCase() + '.png';
+    }
+
+    get starColors(): string[] {
+        let result : string[] = [];
+        if(this.rarity < SurvivorRarity.Elite) {
+            for(var i=0; i <= this.rarity; i++)
+                result.push('grey-icon');
+            return result;
+        }
+        const pinkStars = this.rarity - SurvivorRarity.Legendary;
+        for(var i=0; i < 5-pinkStars; i++)
+            result.push('grey-icon');
+        for(var i=0; i < pinkStars; i++)
+            result.push('pink-icon');
+            
+        return result;
     }
 }
 
@@ -35,5 +55,11 @@ export class SurvivorTrait {
     constructor(name: string, level: number) {
         this.name = name;
         this.level = level;
+    }
+
+    get survivorTraitIcon(): string {
+        const reSpace = /\ /gi;
+        const re =  /\'/gi;
+        return '/assets/img/survivor-traits/' + this.name.toLowerCase().replace(reSpace, '-').replace(re, '') + '.png';
     }
 }
