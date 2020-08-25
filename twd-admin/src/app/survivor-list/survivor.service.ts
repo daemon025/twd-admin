@@ -26,7 +26,6 @@ export class SurvivorService {
     })
       .pipe(
         map((response: string) => {
-          console.log(response);
           const lines = response.split('\n');
           const header = lines[0].split(',');
 
