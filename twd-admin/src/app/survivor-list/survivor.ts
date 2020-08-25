@@ -24,19 +24,23 @@ export class Survivor {
     }
 
     get starColors(): string[] {
-        let result : string[] = [];
-        if(this.rarity < SurvivorRarity.Elite) {
-            for(var i=0; i <= this.rarity; i++)
+        let result: string[] = [];
+        if (this.rarity < SurvivorRarity.Elite) {
+            for (var i = 0; i <= this.rarity; i++)
                 result.push('grey-icon');
             return result;
         }
         const pinkStars = this.rarity - SurvivorRarity.Legendary;
-        for(var i=0; i < 5-pinkStars; i++)
+        for (var i = 0; i < 5 - pinkStars; i++)
             result.push('grey-icon');
-        for(var i=0; i < pinkStars; i++)
+        for (var i = 0; i < pinkStars; i++)
             result.push('pink-icon');
-            
+
         return result;
+    }
+
+    get rarityColor(): string {
+        return `survivor-rarity-${SurvivorRarity[this.rarity].toLowerCase()}`;
     }
 }
 
@@ -59,7 +63,7 @@ export class SurvivorTrait {
 
     get survivorTraitIcon(): string {
         const reSpace = /\ /gi;
-        const re =  /\'/gi;
+        const re = /\'/gi;
         return '/assets/img/survivor-traits/' + this.name.toLowerCase().replace(reSpace, '-').replace(re, '') + '.png';
     }
 }

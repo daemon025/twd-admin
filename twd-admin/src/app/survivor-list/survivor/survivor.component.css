@@ -1,6 +1,31 @@
+.survivor-rarity-common {
+    border-color: grey !important;
+}
+
+.survivor-rarity-uncommon {
+    border-color: brown !important;
+}
+
+.survivor-rarity-rare {
+    border-color: green !important;
+}
+
+.survivor-rarity-epic {
+    border-color: blue !important;
+}
+
+.survivor-rarity-legendary,
+.survivor-rarity-elite,
+.survivor-rarity-elite2,
+.survivor-rarity-elite3,
+.survivor-rarity-elite4,
+.survivor-rarity-elite5 {
+    border-color: yellow !important;
+}
+
 .survivor-panel {
     width: 160px;
-    border: solid 2px yellow;
+    border: solid 2px;
     border-radius: 5px;
     font-size: 18px;
 }
@@ -13,8 +38,8 @@
 .survivor-panel .header .survivor-class {
     height: 32px;
     width: 32px;
-    display : flex;
-    align-items : center;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -26,8 +51,8 @@
 .survivor-panel .header .survivor-name {
     color: white;
     width: 128px;
-    display : flex;
-    align-items : center;
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
 }
 
@@ -49,8 +74,8 @@
     height: 32px;
     width: 32px;
     border-bottom-right-radius: 5px;
-    display : flex;
-    align-items : center;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -98,8 +123,8 @@
 .survivor-panel .survivor-trait {
     width: 32px;
     height: 32px;
-    display : flex;
-    align-items : center;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 

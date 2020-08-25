@@ -1,7 +1,7 @@
-<div class="survivor-panel">
+<div class="survivor-panel" [class]="survivor.rarityColor">
     <div class="header">
         <div class="survivor-class">
-           <img [src]="survivor.survivorClassIcon" />
+            <img [src]="survivor.survivorClassIcon" />
         </div>
         <div class="survivor-name">
             <span style="padding-right: 5px;"> {{ survivor.name }} </span>
