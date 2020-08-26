@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Survivor, SurvivorTrait, SurvivorClass, SurvivorRarity } from './survivor';
+import { Survivor, SurvivorTrait, SurvivorClass, SurvivorRarity, SurvivorType } from './survivor';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, empty } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -34,10 +34,12 @@ export class SurvivorService {
 
             let survivor = new Survivor(i);
             survivor.name = arr[header.indexOf('Name')].trim();
+            survivor.shortName = arr[header.indexOf('ShortName')].trim();
             survivor.image = arr[header.indexOf('Image')];
             survivor.level = Number(arr[header.indexOf('Level')]);
             survivor.class = SurvivorClass[arr[header.indexOf('Class')]];
             survivor.rarity = SurvivorRarity[arr[header.indexOf('Rarity')]];
+            survivor.type = SurvivorType[arr[header.indexOf('Type')]];
 
             const startingTraitIndex = header.indexOf('Traits');
             this.addTraits(survivor.traits, startingTraitIndex, arr);

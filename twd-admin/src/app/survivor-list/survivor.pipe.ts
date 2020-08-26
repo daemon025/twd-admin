@@ -11,7 +11,8 @@ export class SurvivorPipe implements PipeTransform {
       return value;
 
     return value.sort((a: Survivor, b: Survivor) => b.level - a.level
-      || b.rarityMultiplier - a.rarityMultiplier);
+      || b.rarityMultiplier - a.rarityMultiplier
+      || b.type - a.type);
   }
 
 }

@@ -1,10 +1,16 @@
 <div class="survivor-panel" [class]="survivor.rarityColor">
+    <div class="top-badge-container">
+        <div *ngIf="survivor.type != 0">
+            <span *ngIf="survivor.type == 1" class="hero-label">HERO</span>
+            <span *ngIf="survivor.type == 2" class="alt-hero-label">HERO</span>
+        </div>
+    </div>
     <div class="header">
         <div class="survivor-class">
             <img [src]="survivor.survivorClassIcon" />
         </div>
         <div class="survivor-name">
-            <span style="padding-right: 5px;"> {{ survivor.name }} </span>
+            <span style="padding-right: 5px;"> {{ survivor.shortName }} </span>
         </div>
     </div>
     <div class="body" [ngStyle]="{'background-image': getUrl(survivor)}">

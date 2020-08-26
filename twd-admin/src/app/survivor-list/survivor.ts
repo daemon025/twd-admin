@@ -3,12 +3,13 @@ import { StringifyOptions } from "querystring";
 export class Survivor {
     id: number;
     name: string;
+    shortName: string;
     image: string;
     level: number;
     class: SurvivorClass;
     rarity: SurvivorRarity;
     traits: SurvivorTrait[];
-    hero: boolean;
+    type: SurvivorType;
 
     constructor(id: number) {
         this.id = id;
@@ -16,7 +17,7 @@ export class Survivor {
     }
 
     get rarityMultiplier(): number {
-        return this.hero ? this.rarity + 1 : this.rarity;
+        return (this.type == SurvivorType.HR || this.type == SurvivorType.AHR) ? this.rarity + 1 : this.rarity;
     }
 
     get survivorClassIcon(): string {
@@ -50,6 +51,10 @@ export enum SurvivorClass {
 
 export enum SurvivorRarity {
     Common, Uncommon, Rare, Epic, Legendary, Elite, Elite2, Elite3, Elite4, Elite5
+}
+
+export enum SurvivorType {
+    SRV, HR, AHR
 }
 
 export class SurvivorTrait {
