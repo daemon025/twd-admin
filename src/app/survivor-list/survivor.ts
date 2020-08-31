@@ -69,6 +69,6 @@ export class SurvivorTrait {
     get survivorTraitIcon(): string {
         const reSpace = /\ /gi;
         const re = /\'/gi;
-        return '/assets/img/survivor-traits/' + this.name.toLowerCase().replace(reSpace, '-').replace(re, '') + '.png';
+        return 'assets/img/survivor-traits/' + this.name.toLowerCase().replace(reSpace, '-').replace(re, '') + '.png';
     }
 }
