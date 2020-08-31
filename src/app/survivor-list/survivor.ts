@@ -21,7 +21,7 @@ export class Survivor {
     }
 
     get survivorClassIcon(): string {
-        return '/assets/img/survivor-classes/' + SurvivorClass[this.class].toLowerCase() + '.png';
+        return 'assets/img/survivor-classes/' + SurvivorClass[this.class].toLowerCase() + '.png';
     }
 
     get starColors(): string[] {
