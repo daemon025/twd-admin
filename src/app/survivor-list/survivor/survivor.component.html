@@ -1,4 +1,4 @@
-<div class="survivor-panel" [class]="survivor.rarityColor">
+<div *ngIf="survivor" class="survivor-panel" [class]="survivor.rarityColor">
     <div class="top-badge-container">
         <div *ngIf="survivor.type != 0">
             <span *ngIf="survivor.type == 1" class="hero-label">HERO</span>
@@ -21,7 +21,6 @@
             </div>
         </div>
         <div class="badge-container">
-            ...
         </div>
         <div class="stats-container">
             <img src="https://cdn-5ce4a003f911c80f50818892.closte.com/wp-content/uploads/2010/10/pure-css-progress-bar.png" width="160px" height="24px" />

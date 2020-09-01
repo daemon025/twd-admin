@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Survivor, SurvivorTrait, SurvivorClass, SurvivorRarity, SurvivorType } from './survivor';
 import { HttpClient } from '@angular/common/http';
-import { Observable, empty } from 'rxjs';
+import { Observable, empty, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurvivorService {
+  readonly proxyUrl: string = 'https://cors-anywhere.herokuapp.com/';
+  readonly survivorUrl: string = 'https://docs.google.com/spreadsheets/d/1YzhrglHp4EE8yIs1EDnv68fiFkuX3BpeoYkjapmL9nk/export?format=csv&gid=1662887305';
+  private survivors: Survivor[];
+
   constructor(private http: HttpClient) { }
 
   getSurvivors(): Observable<Survivor[]> {
-    let survivors: Survivor[] = [];
+    if(this.survivors)
+      return of(this.survivors);
 
-    return this.http.get('https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/1YzhrglHp4EE8yIs1EDnv68fiFkuX3BpeoYkjapmL9nk/export?format=csv&gid=1662887305', {
+    return this.http.get(`${this.proxyUrl}${this.survivorUrl}`, {
       responseType: 'text'
     })
       .pipe(
         map((response: string) => {
-          const lines = response.split('\n');
+          let survivors = [];
+          const lines = response.split('\r\n');
           const header = lines[0].split(',');
 
           for (var i = 1; i < lines.length; i++) {
@@ -39,12 +45,17 @@ export class SurvivorService {
             survivors.push(survivor);
           }
 
-          return survivors;
+          this.survivors = survivors;
+          return this.survivors;
         }),
         catchError((err, caught) => {
           console.log(err);
           return empty();
         }));
+  }
+
+  getByName(name: string): Observable<Survivor> {
+    return this.getSurvivors().pipe(map((result: Survivor[]) => result.find((s: Survivor) => s.name == name)));
   }
 
   private getTrait(line: string): SurvivorTrait {

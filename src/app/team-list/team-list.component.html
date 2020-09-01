@@ -1,1 +1,11 @@
-<p>team-list works!</p>
+<div class="team-list-container">
+    <div *ngFor="let team of teams" class="team-container">
+        <div class="info-container">
+            <div class="name">{{ team.name }}</div>
+            <div class="rating">B+</div>
+        </div>
+        <div class="member-container">
+            <app-survivor style="padding: 8px;" *ngFor="let member of team.members" [survivor]="getSurvivor(member)"></app-survivor>
+        </div>
+    </div>
+</div>
