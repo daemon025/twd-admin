@@ -58,9 +58,13 @@
 }
 
 .survivor-panel .top-badge-container .team {
-    float: right;
+    width: 100%;
+}
+
+.survivor-panel .top-badge-container .team-name {
     background-color: #6E8408;
     color: white;
+    float: right;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     padding: 0px 4px;
