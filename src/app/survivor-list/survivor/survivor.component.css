@@ -57,6 +57,16 @@
     background-color: #A31056;
 }
 
+.survivor-panel .top-badge-container .team {
+    float: right;
+    background-color: #6E8408;
+    color: white;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 0px 4px;
+    margin-right: 2px;
+}
+
 .survivor-panel .header {
     height: 32px;
     display: inline-flex;

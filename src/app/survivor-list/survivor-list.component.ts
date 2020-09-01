@@ -1,23 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SurvivorService } from './survivor.service';
 import { Survivor, SurvivorClass, SurvivorType } from './survivor';
+import { Team } from '../team-list/team';
+import { TeamService } from '../team-list/team.service';
+import { Subscription, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-survivor-list',
   templateUrl: './survivor-list.component.html',
   styleUrls: ['./survivor-list.component.css']
 })
-export class SurvivorListComponent implements OnInit {
+export class SurvivorListComponent implements OnInit, OnDestroy {
   survivors: Survivor[];
+  teams: Team[];
   filteredSurvivors: Survivor[];
+  sub$: Subscription;
 
-  constructor(private survivorService: SurvivorService) { }
+  constructor(private survivorService: SurvivorService, private teamService: TeamService) { }
 
   ngOnInit(): void {
-    this.survivorService.getSurvivors().subscribe(res => {
-      this.survivors = res;
+    let tasks$ = [];
+    tasks$.push(this.survivorService.getSurvivors());
+    tasks$.push(this.teamService.getTeams());
+
+    this.sub$ = forkJoin(tasks$).subscribe(([survivors, teams]: [Survivor[], Team[]]) => {
+      this.survivors = survivors;
       this.filteredSurvivors = this.survivors;
+      this.teams = teams;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub$.unsubscribe();
   }
 
   filter(filterId: number) {

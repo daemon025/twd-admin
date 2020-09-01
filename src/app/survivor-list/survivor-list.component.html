@@ -13,6 +13,6 @@
 
 <div class="survivor-container">
     <div *ngFor="let survivor of filteredSurvivors | survivor" style="padding: 16px 8px;">
-        <app-survivor [survivor]="survivor"></app-survivor>
+        <app-survivor [survivor]="survivor" [teams]="teams"></app-survivor>
     </div>
 </div>
