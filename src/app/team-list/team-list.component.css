@@ -32,6 +32,19 @@
     display: inline-flex;
     float: right;
     font-size: 24px;
+    color: white;
+}
+
+.team-list-container .team-container .info-container .rating .tier-1 {
+    background-color: #AC9132;
+}
+
+.team-list-container .team-container .info-container .rating .tier-2 {
+    background-color: #7C7C7C;
+}
+
+.team-list-container .team-container .info-container .rating .tier-3 {
+    background-color: #7A3600;
 }
 
 .team-list-container .team-container .member-container {
